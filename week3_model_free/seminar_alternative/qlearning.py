@@ -27,57 +27,61 @@ class QLearningAgent():
     !!!Important!!!
     NOTE: please avoid using self._qValues directly to make code cleaner
   """
-  def __init__(self,alpha,epsilon,discount,getLegalActions):
+    def __init__(self,alpha,epsilon,discount,getLegalActions):
     "We initialize agent and Q-values here."
-    self.getLegalActions= getLegalActions
-    self._qValues = defaultdict(lambda:defaultdict(lambda:0))
-    self.alpha = alpha
-    self.epsilon = epsilon
-    self.discount = discount
+        self.getLegalActions= getLegalActions
+        self._qValues = defaultdict(lambda:defaultdict(lambda:0))
+        self.alpha = alpha
+        self.epsilon = epsilon
+        self.discount = discount
 
-  def getQValue(self, state, action):
+    def getQValue(self, state, action):
     """
       Returns Q(state,action)
     """
-    return self._qValues[state][action]
+        return self._qValues[state][action]
 
-  def setQValue(self,state,action,value):
+    def setQValue(self,state,action,value):
     """
       Sets the Qvalue for [state,action] to the given value
     """
-    self._qValues[state][action] = value
+        self._qValues[state][action] = value
 
 #---------------------#start of your code#---------------------#
 
-  def getValue(self, state):
+    def getValue(self, state):
     """
       Returns max_action Q(state,action)
       where the max is over legal actions.
     """
     
-    possibleActions = self.getLegalActions(state)
+        possibleActions = self.getLegalActions(state)
     #If there are no legal actions, return 0.0
-    if len(possibleActions) == 0:
-    	return 0.0
-
+        if len(possibleActions) == 0:
+            return 0.0
+        currentMax = 0.0
+        for action in possibleActions:
+            if getQValue(state, action) > currentMax:
+                currentMax = getQValue(state, action)
     "*** YOUR CODE HERE ***"
-    return <compute state value>
+        return currentMax
     
-  def getPolicy(self, state):
+    def getPolicy(self, state):
     """
       Compute the best action to take in a state. 
-      
     """
     possibleActions = self.getLegalActions(state)
 
     #If there are no legal actions, return None
     if len(possibleActions) == 0:
-    	return None
+        return None
     
     best_action = None
-
+    
+    for action in possibleActions:
+        if getValue(state) == getQValue(state, action)
+            best_action = action
     "*** YOUR CODE HERE ***"
-    best_action = <your code>
     return best_action
 
   def getAction(self, state):
@@ -89,7 +93,6 @@ class QLearningAgent():
 
       HINT: You might want to use util.flipCoin(prob)
       HINT: To pick randomly from a list, use random.choice(list)
-
     """
     
     # Pick Action
