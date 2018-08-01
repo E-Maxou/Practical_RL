@@ -1,5 +1,6 @@
 ## Materials
 
+http://www.argmin.net/2018/02/20/reinforce/
 http://kvfrans.com/simple-algoritms-for-solving-cartpole/
 * [Slides](https://docviewer.yandex.ru/?url=ya-disk-public%3A%2F%2FG3IXcG62RwNUGSSos%2BuGhtgXNfsBjP9RxUtUfgCffIk%3D%3A%2Flecture6.pdf&name=lecture6.pdf&c=58c876c4863a)
 * Video lecture by D. Silver - [video](https://www.youtube.com/watch?v=KHZVXao4qXs)
